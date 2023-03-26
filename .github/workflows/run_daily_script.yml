@@ -29,3 +29,9 @@ jobs:
 
       - name: Run R script
         run: Rscript dothis.R
+        
+      - name: Commit results
+        run: |
+          git add -A
+          git commit -m 'New AQ data. Maps updated!' || echo "No changes"
+          git push origin || echo "No changes to commit"        
