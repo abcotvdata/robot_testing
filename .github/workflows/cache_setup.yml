@@ -4,7 +4,8 @@ on:
   schedule:
     # Run once a week at 00:00 on Monday
     - cron: '0 0 * * 1'
-
+  workflow_dispatch:
+  
 jobs:
   setup:
     runs-on: macos-latest

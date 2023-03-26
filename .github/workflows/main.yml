@@ -1,9 +1,11 @@
 name: Download and commit file
 
+# Controls when the workflow will run
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '45 10 * * *'
+      # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   download-and-commit:
