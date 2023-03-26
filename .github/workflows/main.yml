@@ -1,0 +1,18 @@
+name: Download and commit file
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  download-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download file
+        run: curl -o data/2021cit.pdf https://www.dps.texas.gov/sites/default/files/documents/crimereports/21/2021cit.pdf
+      - name: Commit file
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'Add 2021cit.pdf'
+          add: 'data/2021cit.pdf'
