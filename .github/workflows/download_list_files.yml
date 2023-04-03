@@ -1,4 +1,4 @@
-name: Download and commit file
+name: Download multiple files in an array
 
 # Controls when the workflow will run
 on:
