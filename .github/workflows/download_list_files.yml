@@ -20,7 +20,7 @@ jobs:
             filename=$(basename "$url")
             curl -o "data/$filename" "$url"
       - name: Commit file
-        uses: EndBug/add-and-commit@v7
-        with:
-          message: 'Add 2021cit.pdf'
-          add: 'data/2021cit.pdf'
+      uses: EndBug/add-and-commit@v7
+      with:
+        message: 'Add downloaded files'
+        add: 'data/*'
