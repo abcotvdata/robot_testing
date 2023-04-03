@@ -20,7 +20,7 @@ jobs:
             filename=$(basename "$url")
             curl -o "data/$filename" "$url"
           done
-      - name: Print debug information
+      - name: Print debugging information
         run: |
           echo "Contents of data directory:"
           ls -l data
