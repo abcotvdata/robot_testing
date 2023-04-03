@@ -1,10 +1,10 @@
-name: Download multiple files in an array
+name: Download multiple nypd files in an array
 
 # Controls when the workflow will run
 on:
   schedule:
     - cron: '45 10 * * *'
-      # Allows you to run this workflow manually from the Actions tab
+      # Allows you to run this workflow manually from Actions tab
   workflow_dispatch:
 
 jobs:
@@ -20,6 +20,12 @@ jobs:
             filename=$(basename "$url")
             curl -o "data/$filename" "$url"
           done
+      - name: Print debugging information
+        run: |
+          echo "Contents of data directory:"
+          ls -l data
+          echo "Git status:"
+          git status
       - name: Commit file
         uses: EndBug/add-and-commit@v7
         with:
