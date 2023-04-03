@@ -20,6 +20,12 @@ jobs:
             filename=$(basename "$url")
             curl -o "data/$filename" "$url"
           done
+      - name: Print debug information
+        run: |
+          echo "Contents of data directory:"
+          ls -l data
+          echo "Git status:"
+          git status
       - name: Commit file
         uses: EndBug/add-and-commit@v7
         with:
