@@ -19,6 +19,7 @@ jobs:
           do
             filename=$(basename "$url")
             curl -o "data/$filename" "$url"
+          done
       - name: Commit file
         uses: EndBug/add-and-commit@v7
         with:
