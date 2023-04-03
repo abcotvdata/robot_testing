@@ -18,7 +18,7 @@ jobs:
         for url in "${urls[@]}"
         do
           filename=$(basename "$url")
-          curl -o "data/$filename" "$url"|
+          curl -o "data/$filename" "$url"
       - name: Commit file
         uses: EndBug/add-and-commit@v7
         with:
