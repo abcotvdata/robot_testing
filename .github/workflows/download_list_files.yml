@@ -1,4 +1,4 @@
-name: Download multiple files in an array
+name: Download multiple nypd files in an array
 
 # Controls when the workflow will run
 on:
@@ -24,4 +24,4 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           message: 'Add downloaded files'
-          add: 'data/*'
+          add: 'data/source/weekly/*'
