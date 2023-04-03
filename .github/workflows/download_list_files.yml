@@ -1,0 +1,26 @@
+name: Download and commit file
+
+# Controls when the workflow will run
+on:
+  schedule:
+    - cron: '45 10 * * *'
+      # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  download-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download file
+        run: |
+        urls=("https://example.com/file1.pdf", "https://example.com/file2.pdf")
+        for url in "${urls[@]}"
+        do
+          filename=$(basename "$url")
+          curl -o "data/$filename" "$url"|
+      - name: Commit file
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'Add 2021cit.pdf'
+          add: 'data/2021cit.pdf'
