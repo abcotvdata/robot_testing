@@ -15,10 +15,9 @@ jobs:
         run: |
           brew install geckodriver
           Rscript -e 'install.packages(c("RSelenium", "tesseract", "magick"))'
-      - name: Start headless Firefox browser
+      - name: Start headless Chrome
         run: |
-          Rscript -e 'library(RSelenium); rD <- rsDriver(browser = "firefox", extraCapabilities = list(marionette = TRUE)); remDr <- rD$client'
-      - name: Run sf_tableau_ytd R script
+          Rscript -e 'library(RSelenium); rD <- rsDriver(browser = "chrome"); remDr <- rD$client'      - name: Run sf_tableau_ytd R script
         run: Rscript scripts/sf_tableau_scraper_ytd.R
       - name: Commit results
         run: |
