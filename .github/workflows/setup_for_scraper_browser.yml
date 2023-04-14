@@ -18,6 +18,7 @@ jobs:
       - name: Start headless Chrome
         run: |
           Rscript -e 'library(RSelenium); rD <- rsDriver(browser = "chrome"); remDr <- rD$client'      - name: Run sf_tableau_ytd R script
+      - name: Run R Script
         run: Rscript scripts/sf_tableau_scraper_ytd.R
       - name: Commit results
         run: |
