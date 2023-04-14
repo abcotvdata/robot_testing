@@ -21,7 +21,7 @@ urlTaraval <- "https://public.tableau.com/app/profile/san.francisco.police.depar
 urlTenderloin <- "https://public.tableau.com/app/profile/san.francisco.police.department/viz/CrimeNumbersDashboardMobile/Crime_Numbers_Mobile?DISTRICT=Tenderloin"
 
 # Launch browser and driver
-rD <- rsDriver(browser="firefox", port=4545L, verbose=F)
+rD <- rsDriver(browser="chrome", port=4545L, verbose=F)
 remDr <- rD[["client"]]
 
 # For the series of urls, we navigate to each, scroll down and take the same screenshot
