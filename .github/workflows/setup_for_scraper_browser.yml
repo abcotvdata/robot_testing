@@ -1,0 +1,27 @@
+name: R firefox test
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+  
+jobs:
+  start-script:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - name: Install dependencies
+        run: |
+          brew install geckodriver
+          Rscript -e 'install.packages(c("RSelenium", "tesseract", "magick"))'
+      - name: Start headless Firefox browser
+        run: |
+          Rscript -e 'library(RSelenium); rD <- rsDriver(browser = "firefox", extraCapabilities = list(marionette = TRUE)); remDr <- rD$client'
+      - name: Run sf_tableau_ytd R script
+        run: Rscript scripts/sf_tableau_scraper_ytd.R
+      - name: Commit results
+        run: |
+          git add -A
+          git commit -m 'New data. Updated!' || echo "No changes"
+          git push origin || echo "No changes to commit"        
