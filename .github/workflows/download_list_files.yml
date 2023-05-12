@@ -3,7 +3,7 @@ name: Download multiple nypd files in an array
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: '45 10 * * *'
+  #  - cron: '45 10 * * *'
       # Allows you to run this workflow manually from Actions tab
   workflow_dispatch:
 
