@@ -1,4 +1,4 @@
-name: Download and commit file
+name: Download file, check error and commit
 
 # Controls when the workflow will run
 on:
