@@ -22,7 +22,7 @@ jobs:
             else
                   error=false
             fi
-          done
+            done
       - name: Copy file if no error
       run: |
         cp data/airnow_aq_raw.geojson data/airnow_aq.geojson
