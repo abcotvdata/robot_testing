@@ -24,8 +24,8 @@ jobs:
             fi
             done
       - name: Copy file if no error
-      run: |
-        cp data/airnow_aq_raw.geojson data/airnow_aq.geojson
+        run: |
+            cp data/airnow_aq_raw.geojson data/airnow_aq.geojson
       - name: Commit file
         uses: EndBug/add-and-commit@v7
         with:
